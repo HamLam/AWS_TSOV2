@@ -20,7 +20,7 @@ source $FILE
 # [[ -z ${s_s2r2Fastq+unset} ]] &&  echo "Variable s_s2r2Fastq not found." && exit -1  || echo "Variable s_s2r2Fastq found: ${s_s2r2Fastq}."
 
 [[ -z ${training+unset} ]] &&  echo "Variable training not found." && exit -1  || echo "Variable training found: ${training}."
-# [[ -z ${ordered_genes+unset} ]] &&  echo "Variable ordered_genes not found." && exit -1  || echo "Variable ordered_genes found: ${ordered_genes}."
+[[ -z ${ordered_genes+unset} ]] &&  echo "Variable ordered_genes not found." && exit -1  || echo "Variable ordered_genes found: ${ordered_genes}."
 [[ -z ${email+unset} ]] &&  echo "Variable email not found." && exit -1  || echo "Variable email found: ${email}."
 [[ -z ${bwa_db_value+unset} ]] &&  echo "Variable bwa_db_value not found." && exit -1  || echo "Variable bwa_db_value found: ${bwa_db_value}."
 [[ -z ${bowtie2_db_value+unset} ]] &&  echo "Variable bowtie2_db_value not found." && exit -1  || echo "Variable bowtie2_db_value found: ${bowtie2_db_value}."
