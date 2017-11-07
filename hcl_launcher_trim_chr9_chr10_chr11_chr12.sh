@@ -160,11 +160,11 @@ sed -e s,control_name,"$control_name",g -e s,sample_name,"$sample_name",g < "$te
 sed -e s,control_name,"$control_name",g -e s,sample_name,"$sample_name",g < "$template_pwd/get_cnv.sql" > "$sample_path/get_cnv.sql"
 
 # Create file with list of gene panel (comma delimited)
-#echo $ordered_genes > "$sample_path/ordered_genes_temp.txt"
+echo $ordered_genes > "$sample_path/ordered_genes_temp.txt"
 
 # Replace comma with newline so we can load it into a MySQL database
-#tr , '\n' < "$sample_path/ordered_genes_temp.txt" > "$sample_path/ordered_genes.txt"
-cp $template_pwd/chr9_chr10_chr11_chr12_ordered_genes.txt $sample_path/ordered_genes.txt
+tr , '\n' < "$sample_path/ordered_genes_temp.txt" > "$sample_path/ordered_genes.txt"
+#cp $template_pwd/chr9_chr10_chr11_chr12_ordered_genes.txt $sample_path/ordered_genes.txt
 
 # Delete the temp file
 rm -rf "$sample_path/ordered_genes_temp.txt"
