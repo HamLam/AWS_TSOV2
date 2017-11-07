@@ -711,7 +711,7 @@ else
     if [[ $? -ne 0 ]] ; then
 	echo "Run plot_script.pl failed" >&2
 	## mysqladmin --socket=$BASE/thesock shutdown -u root
-	exit 1
+	#exit 1
     else
 	echo "plot_script.pl" >> $working_dir/completed.txt
     fi
@@ -727,7 +727,7 @@ else
     if [[ $? -ne 0 ]] ; then
 	echo "Run plot_genes_ordered.py failed" >&2
 	## mysqladmin --socket=$BASE/thesock shutdown -u root
-	exit 1
+	#exit 1
     else
 	echo "plot_genes_ordered.py" >> $working_dir/completed.txt
     fi
@@ -746,7 +746,7 @@ else
     if [[ $? -ne 0 ]] ; then
 	echo "Run get_ordered_genes.sql failed" >&2
 	## mysqladmin --socket=$BASE/thesock shutdown -u root
-	exit 1
+	#exit 1
     else
 	echo "get_ordered_genes.sql" >> $working_dir/completed.txt
 	sed -e s,NULL,,g < sample_name_cnv_calls_on_ordered_genes_$_now.txt > sample_name_cnv_calls_on_ordered_genes_$_now.txt.bak
@@ -774,7 +774,7 @@ else
     if [[ $? -ne 0 ]] ; then
         echo "Run move_script.pl failed" >&2
         ## mysqladmin --socket=$BASE/thesock shutdown -u root
-        exit 1
+        #exit 1
     else
         echo "move_plots.pl ran successfully"
     fi
@@ -794,7 +794,7 @@ else
     sh move_plots.sh
     if [[ $? -ne 0 ]] ; then
         echo "Run move_plots.sh failed" >&2
-        exit 1
+        #exit 1
     else
     	echo "move_script.pl" >> $working_dir/completed.txt
         echo "move_plots.sh" >> $working_dir/completed.txt
