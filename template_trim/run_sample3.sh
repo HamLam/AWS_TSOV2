@@ -716,51 +716,51 @@ fi
 
 grep "plot_script.pl" $working_dir/completed.txt > /dev/null 2>&1
 if [ "$?" = "0" ]; then
-    echo "plot_script.pl already run"
+    echo "plot_script.pl cnv3 already run"
 else
-    echo "plot_script.pl"
+    echo "plot_script.pl cnv3"
     perl $script_path/plot_script.pl -t cnv_sample_name_tso_over_control_name_n_bowtie_bwa_ratio_gene_out -s sample_name -c cnv_sample_name_ordered_genes -k cnv_sample_name_ordered_genes -h localhost -u root -d cnv3 -o plot_genes_ordered.py -ms $mysql_socket -a 1
     if [[ $? -ne 0 ]] ; then
-	echo "Run plot_script.pl failed" >&2
+	echo "Run plot_script.pl cnv3 failed" >&2
 	## mysqladmin --socket=$BASE/thesock shutdown -u root
 	#exit 1
     else
-	echo "plot_script.pl" >> $working_dir/completed.txt
+	echo "plot_script.pl cnv3" >> $working_dir/completed.txt
     fi
 fi
 #
-grep "plot_genes_ordered.py" $working_dir/completed.txt > /dev/null 2>&1
+grep "plot_genes_ordered_cnv3.py" $working_dir/completed.txt > /dev/null 2>&1
 if [ "$?" = "0" ]; then
-    echo "plot_genes_ordered.py already run"
+    echo "plot_genes_ordered_cnv3.py already run"
 else
-    echo "plot_genes_ordered.py"
+    echo "plot_genes_ordered_cnv3.py"
     #R CMD BATCH plot_genes_ordered.R
-    python plot_genes_ordered.py
+    python plot_genes_ordered_cnv3.py
     if [[ $? -ne 0 ]] ; then
-	echo "Run plot_genes_ordered.py failed" >&2
+	echo "Run plot_genes_ordered_cnv3.py failed" >&2
 	## mysqladmin --socket=$BASE/thesock shutdown -u root
 	#exit 1
     else
-	echo "plot_genes_ordered.py" >> $working_dir/completed.txt
+	echo "plot_genes_ordered_cnv3.py" >> $working_dir/completed.txt
     fi
 fi
-echo -n "Finished plot_genes_ordered.py " >> $working_dir/time_check
+echo -n "Finished plot_genes_ordered_cnv3.py " >> $working_dir/time_check
 timecheck=`(date +"%Y-%m-%d [ %H:%M:%S ]")`;
 echo ${timecheck} >> $working_dir/time_check
 
 
 grep "get_ordered_genes.sql" $working_dir/completed.txt > /dev/null 2>&1
 if [ "$?" = "0" ]; then
-    echo "get_ordered_genes.sql already run"
+    echo "get_ordered_genes.sql cnv3 already run"
 else
-    echo "get_ordered_genes.sql"
+    echo "get_ordered_genes.sql cnv3"
     mysql --socket=$BASE/thesock -u root cnv3 < get_ordered_genes.sql  > sample_name_cnv_calls_on_ordered_genes_$_now.txt
     if [[ $? -ne 0 ]] ; then
-	echo "Run get_ordered_genes.sql failed" >&2
+	echo "Run get_ordered_genes.sql cnv3 failed" >&2
 	## mysqladmin --socket=$BASE/thesock shutdown -u root
 	#exit 1
     else
-	echo "get_ordered_genes.sql" >> $working_dir/completed.txt
+	echo "get_ordered_genes.sql cnv3" >> $working_dir/completed.txt
 	sed -e s,NULL,,g < sample_name_cnv_calls_on_ordered_genes_$_now.txt > sample_name_cnv_calls_on_ordered_genes_$_now.txt.bak
 	mv sample_name_cnv_calls_on_ordered_genes_$_now.txt.bak sample_name_cnv_calls_on_ordered_genes_$_now.txt
     fi
@@ -779,16 +779,16 @@ fi
 
 grep "move_script.pl" $working_dir/completed.txt > /dev/null 2>&1
 if [ "$?" = "0" ]; then
-    echo "move_script.pl already run"
+    echo "move_script.pl cnv3 already run"
 else
     echo "move_script.pl"
-    perl $script_path/move_script.pl -c cnv_sample_name_ordered_genes -p sample_result -h localhost -u root -d cnv -o move_plots.sh -ms $mysql_socket
+    perl $script_path/move_script.pl -c cnv_sample_name_ordered_genes -p sample_result -h localhost -u root -d cnv3 -o move_plots.sh -ms $mysql_socket
     if [[ $? -ne 0 ]] ; then
-        echo "Run move_script.pl failed" >&2
+        echo "Run move_script.pl cnv3 failed" >&2
         ## mysqladmin --socket=$BASE/thesock shutdown -u root
         #exit 1
     else
-        echo "move_plots.pl ran successfully"
+        echo "move_plots.pl cnv3 ran successfully"
     fi
 fi
 
@@ -805,7 +805,7 @@ else
     echo "Run move_plots.sh"
     sh move_plots.sh
     if [[ $? -ne 0 ]] ; then
-        echo "Run move_plots.sh failed" >&2
+        echo "Run move_plots.sh cnv3 failed" >&2
         #exit 1
     else
     	echo "move_script.pl" >> $working_dir/completed.txt
