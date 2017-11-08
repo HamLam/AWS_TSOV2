@@ -781,7 +781,7 @@ if [ "$?" = "0" ]; then
     echo "move_script.pl already run"
 else
     echo "move_script.pl"
-    perl $script_path/move_script.pl -c cnv_sample_name_ordered_genes -p sample_result -h localhost -u root -d cnv1 -o move_plots.sh -ms $mysql_socket
+    perl $script_path/move_script.pl -c cnv_sample_name_ordered_genes -p sample_result -h localhost -u root -d cnv1 -o move_plots_cnv1.sh -ms $mysql_socket
     if [[ $? -ne 0 ]] ; then
         echo "Run move_script.pl cnv1 failed" >&2
         ## mysqladmin --socket=$BASE/thesock shutdown -u root
@@ -797,18 +797,18 @@ echo ${timecheck} >> $working_dir/time_check
 #
 ## Run script to move plots for ordered genes
 #
-grep "move_plots.sh" $working_dir/completed.txt > /dev/null 2>&1
+grep "move_plots_cnv1.sh" $working_dir/completed.txt > /dev/null 2>&1
 if [ "$?" = "0" ]; then
-    echo "move_plots.sh already run"
+    echo "move_plots_cnv1.sh already run"
 else
-    echo "Run move_plots.sh"
-    sh move_plots.sh
+    echo "Run move_plots_cnv1.sh"
+    sh move_plots_cnv1.sh
     if [[ $? -ne 0 ]] ; then
-        echo "Run move_plots.sh cnv1 failed" >&2
+        echo "Run move_plots_cnv1.sh  failed" >&2
         #exit 1
     else
     	echo "move_script.pl" >> $working_dir/completed.txt
-        echo "move_plots.sh" >> $working_dir/completed.txt
+        echo "move_plots_cnv1.sh" >> $working_dir/completed.txt
     fi
 fi
 echo -n "Finished move_plots.pl " >> $working_dir/time_check
