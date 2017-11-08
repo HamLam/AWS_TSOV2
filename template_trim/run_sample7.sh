@@ -801,11 +801,11 @@ else
     echo "Run move_plots.sh"
     sh move_plots.sh
     if [[ $? -ne 0 ]] ; then
-        echo "Run move_plots.sh failed" >&2
+        echo "Run move_plots.sh cnv failed" >&2
         #exit 1
     else
-    	echo "move_script.pl" >> $working_dir/completed.txt
-        echo "move_plots.sh" >> $working_dir/completed.txt
+    	echo "move_script.pl cnv7" >> $working_dir/completed.txt
+        echo "move_plots.sh cnv7" >> $working_dir/completed.txt
     fi
 fi
 echo -n "Finished move_plots.pl " >> $working_dir/time_check
