@@ -719,7 +719,7 @@ if [ "$?" = "0" ]; then
     echo "plot_script.pl cnv3 already run"
 else
     echo "plot_script.pl cnv3"
-    perl $script_path/plot_script.pl -t cnv_sample_name_tso_over_control_name_n_bowtie_bwa_ratio_gene_out -s sample_name -c cnv_sample_name_ordered_genes -k cnv_sample_name_ordered_genes -h localhost -u root -d cnv3 -o plot_genes_ordered.py -ms $mysql_socket -a 1
+    perl $script_path/plot_script.pl -t cnv_sample_name_tso_over_control_name_n_bowtie_bwa_ratio_gene_out -s sample_name -c cnv_sample_name_ordered_genes -k cnv_sample_name_ordered_genes -h localhost -u root -d cnv3 -o plot_genes_ordered_cnv3.py -ms $mysql_socket -a 1
     if [[ $? -ne 0 ]] ; then
 	echo "Run plot_script.pl cnv3 failed" >&2
 	## mysqladmin --socket=$BASE/thesock shutdown -u root
@@ -782,7 +782,7 @@ if [ "$?" = "0" ]; then
     echo "move_script.pl cnv3 already run"
 else
     echo "move_script.pl"
-    perl $script_path/move_script.pl -c cnv_sample_name_ordered_genes -p sample_result -h localhost -u root -d cnv3 -o move_plots.sh -ms $mysql_socket
+    perl $script_path/move_script.pl -c cnv_sample_name_ordered_genes -p sample_result -h localhost -u root -d cnv3 -o move_plots_cnv3.sh -ms $mysql_socket
     if [[ $? -ne 0 ]] ; then
         echo "Run move_script.pl cnv3 failed" >&2
         ## mysqladmin --socket=$BASE/thesock shutdown -u root
@@ -798,18 +798,18 @@ echo ${timecheck} >> $working_dir/time_check
 #
 ## Run script to move plots for ordered genes
 #
-grep "move_plots.sh" $working_dir/completed.txt > /dev/null 2>&1
+grep "move_plots_cnv3.sh" $working_dir/completed.txt > /dev/null 2>&1
 if [ "$?" = "0" ]; then
-    echo "move_plots.sh already run"
+    echo "move_plots_cnv3.sh already run"
 else
-    echo "Run move_plots.sh"
-    sh move_plots.sh
+    echo "Run move_plots_cnv3.sh"
+    sh move_plots_cnv3.sh
     if [[ $? -ne 0 ]] ; then
-        echo "Run move_plots.sh cnv3 failed" >&2
+        echo "Run move_plots_cnv3.sh  failed" >&2
         #exit 1
     else
     	echo "move_script.pl" >> $working_dir/completed.txt
-        echo "move_plots.sh" >> $working_dir/completed.txt
+        echo "move_plots_cnv3.sh" >> $working_dir/completed.txt
     fi
 fi
 echo -n "Finished move_plots.pl " >> $working_dir/time_check
