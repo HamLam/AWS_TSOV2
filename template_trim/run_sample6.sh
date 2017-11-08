@@ -717,22 +717,22 @@ else
     fi
 fi
 
-grep "plot_genes_ordered.py" $working_dir/completed.txt > /dev/null 2>&1
+grep "plot_genes_ordered_cnv6.py" $working_dir/completed.txt > /dev/null 2>&1
 if [ "$?" = "0" ]; then
-    echo "plot_genes_ordered.py already run"
+    echo "plot_genes_ordered_cnv6.py already run"
 else
-    echo "plot_genes_ordered.py"
+    echo "plot_genes_ordered_cnv6.py"
     #R CMD BATCH plot_genes_ordered.R
-    python plot_genes_ordered.py
+    python plot_genes_ordered_cnv6.py
     if [[ $? -ne 0 ]] ; then
-	echo "Run plot_genes_ordered.py failed" >&2
+	echo "Run plot_genes_ordered_cnv6.py failed" >&2
 	## mysqladmin --socket=$BASE/thesock shutdown -u root
 	#exit 1
     else
-	echo "plot_genes_ordered.py" >> $working_dir/completed.txt
+	echo "plot_genes_ordered_cnv6.py" >> $working_dir/completed.txt
     fi
 fi
-echo -n "Finished plot_genes_ordered.py " >> $working_dir/time_check
+echo -n "Finished plot_genes_ordered_cnv6.py " >> $working_dir/time_check
 timecheck=`(date +"%Y-%m-%d [ %H:%M:%S ]")`;
 echo ${timecheck} >> $working_dir/time_check
 
@@ -770,7 +770,7 @@ if [ "$?" = "0" ]; then
     echo "move_script.pl already run"
 else
     echo "move_script.pl"
-    perl $script_path/move_script.pl -c cnv_sample_name_ordered_genes -p sample_result -h localhost -u root -d cnv -o move_plots.sh -ms $mysql_socket
+    perl $script_path/move_script.pl -c cnv_sample_name_ordered_genes -p sample_result -h localhost -u root -d cnv6 -o move_plots.sh -ms $mysql_socket
     if [[ $? -ne 0 ]] ; then
         echo "Run move_script.pl failed" >&2
         ## mysqladmin --socket=$BASE/thesock shutdown -u root
@@ -796,8 +796,8 @@ else
         echo "Run move_plots.sh failed" >&2
         #exit 1
     else
-    	echo "move_script.pl" >> $working_dir/completed.txt
-        echo "move_plots.sh" >> $working_dir/completed.txt
+    	echo "move_script.pl cnv6" >> $working_dir/completed.txt
+        echo "move_plots.sh cnv6" >> $working_dir/completed.txt
     fi
 fi
 echo -n "Finished move_plots.pl " >> $working_dir/time_check
