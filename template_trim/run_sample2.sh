@@ -800,11 +800,11 @@ else
     echo "move_script.pl"
     perl $script_path/move_script.pl -c cnv_sample_name_ordered_genes -p sample_result -h localhost -u root -d cnv2 -o move_plots_cnv2.sh -ms $mysql_socket
     if [[ $? -ne 0 ]] ; then
-        echo "Run move_script_cnv2.pl failed" >&2
+        echo "Run move_script.pl failed" >&2
         ## mysqladmin --socket=$BASE/thesock shutdown -u root
         #exit 1
     else
-        echo "move_script.pl ran successfully"
+        echo "move_script.pl cnv2 ran successfully"
     fi
 fi
 #
