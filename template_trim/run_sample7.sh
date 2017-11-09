@@ -796,7 +796,7 @@ echo ${timecheck} >> $working_dir/time_check
 #
 grep "move_plots_cnv7.sh" $working_dir/completed.txt > /dev/null 2>&1
 if [ "$?" = "0" ]; then
-#    echo "move_plots.sh already run"
+ echo "move_plots_cnv7.sh already run"
 else
     echo "Run move_plots_cnv7.sh"
     sh move_plots_cnv7.sh
