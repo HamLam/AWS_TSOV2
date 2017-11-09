@@ -186,7 +186,7 @@ sed -e s,sample_path,"$sample_path",g -e s,scripts_location,"$scripts_location",
 
 # plot_genes_ordered_cnv6.py                                                                
 sed -e s,sample_path,"$sample_path",g -e s,scripts_location,"$scripts_location",g \
--e s,socket_path,"$socket_path",g -e s,tables_path,"$tables_path",g -e s,dbname\=\"cnv\","$dbg6",g \
+-e s,socket_path,"$socket_path",g -e s,tables_path,"$tables_path",g \
 < "$template_pwd/plot_genes_ordered_cnv6.py" > "$sample_path/plot_genes_ordered_cnv6.py"
 
 # create_data.sql
