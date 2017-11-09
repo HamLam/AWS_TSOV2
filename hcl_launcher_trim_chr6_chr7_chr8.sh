@@ -182,6 +182,12 @@ sed -e s,sample_path,"$sample_path",g -e s,scripts_location,"$scripts_location",
 -e s,socket_path,"$socket_path",g -e s,tables_path,"$tables_path",g \
 < "$template_pwd/plot_genes_ordered.py" > "$sample_path/plot_genes_ordered.py"
 
+# plot_genes_ordered_cnv3.py                                                                
+sed -e s,sample_path,"$sample_path",g -e s,scripts_location,"$scripts_location",g \
+-e s,socket_path,"$socket_path",g -e s,tables_path,"$tables_path",g \
+< "$template_pwd/plot_genes_ordered_cnv3.py" > "$sample_path/plot_genes_ordered_cnv3.py"
+
+
 # create_data.sql
 sed -e s,control_name,"$control_name",g -e s,sample_name,"$sample_name",g -e s,sample_path,"$sample_path",g \
 < "$template_pwd/create_data.sql" > "$sample_path/create_data.sql"
