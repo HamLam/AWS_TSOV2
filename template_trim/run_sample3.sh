@@ -769,11 +769,11 @@ echo -n "Finished get_ordered_genes.sql " >> $working_dir/time_check
 timecheck=`(date +"%Y-%m-%d [ %H:%M:%S ]")`;
 echo ${timecheck} >> $working_dir/time_check
 
-if [ -s sample_name_cnv_calls_on_ordered_genes_$_now.txt ]
+if [ -e sample_name_cnv_calls_on_ordered_genes_$_now.txt ]
 then
     cp  sample_name_cnv_calls_on_ordered_genes_$_now.txt sample_result
 else
-    echo "sample_name_cnv_calls_on_ordered_genes_$_now.txt is empty."
+    echo "No cnv call file and sample_name_cnv_calls_on_ordered_genes_$_now.txt is empty."
 # do nothing as file is empty
 fi
 
