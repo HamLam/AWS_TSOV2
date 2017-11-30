@@ -170,6 +170,7 @@ echo "Searching chr6-8 genes"
 mv $sample_path/ordered_genes.txt $sample_path/ordered_genes.txt.orig
 perl $scripts_location/find_chr6_7_8.pl $template_pwd/TSOV2_Genes_With_Chr_listed $sample_path/ordered_genes.txt.orig
 cp $current_path/chr6_7_8_genes_file.txt $sample_path/ordered_genes.txt
+cp $current_path/chr6_7_8_genes_file.txt $sample_path/chr6_7_8_genes_file.txt
 echo "chr6-8 genes searched"
 
 # Delete the temp file
