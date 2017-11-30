@@ -171,7 +171,7 @@ echo "Searching chr17-20 genes"
 mv $sample_path/ordered_genes.txt $sample_path/ordered_genes.txt.orig
 perl $scripts_location/find_chr17_18_19_20.pl $template_pwd/TSOV2_Genes_With_Chr_listed $sample_path/ordered_genes.txt.orig
 cp $sample_path/chr17_18_19_20_genes_file.txt $sample_path/ordered_genes.txt
-cp $sample_path/chr17_18_19_20_genes_file.txt $sample_path/chr17_18_19_20_genes_file.txt
+cp $current_path/chr17_18_19_20_genes_file.txt $sample_path/chr17_18_19_20_genes_file.txt
 echo "chr17-20 genes searched"
 
 
