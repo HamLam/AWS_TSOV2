@@ -169,6 +169,7 @@ echo "Searching chr21-Y genes"
 mv $sample_path/ordered_genes.txt $sample_path/ordered_genes.txt.orig
 perl $scripts_location/find_chr21_22_X_Y.pl $template_pwd/TSOV2_Genes_With_Chr_listed $sample_path/ordered_genes.txt.orig
 cp $sample_path/chr21_22_X_Y_genes_file.txt $sample_path/ordered_genes.txt
+cp $sample_path/chr21_22_X_Y_genes_file.txt $sample_path/chr21_22_X_Y_genes_file.txt
 echo "chr21-Y genes searched"
 
 # Delete the temp file
