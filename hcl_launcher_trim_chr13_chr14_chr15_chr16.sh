@@ -165,6 +165,11 @@ echo $ordered_genes > "$sample_path/ordered_genes_temp.txt"
 # Replace comma with newline so we can load it into a MySQL database
 tr , '\n' < "$sample_path/ordered_genes_temp.txt" > "$sample_path/ordered_genes.txt"
 #cp $template_pwd/chr13_chr14_chr15_chr16_ordered_genes.txt $sample_path/ordered_genes.txt
+echo "Searching chr13-16 genes"
+mv $sample_path/ordered_genes.txt $sample_path/ordered_genes.txt.orig
+perl $scripts_location/find_chr13_14_15_16.pl $template_pwd/TSOV2_Genes_With_Chr_listed $sample_path/ordered_genes.txt.orig
+cp $sample_path/chr13_14_15_16_genes_file.txt $sample_path/ordered_genes.txt
+echo "chr13-16 genes searched"
 
 # Delete the temp file
 rm -rf "$sample_path/ordered_genes_temp.txt"
