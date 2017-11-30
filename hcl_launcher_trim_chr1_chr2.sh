@@ -167,7 +167,7 @@ tr , '\n' < "$sample_path/ordered_genes_temp.txt" > "$sample_path/ordered_genes.
 #cp $template_pwd/chr1_chr2_ordered_genes.txt $sample_path/ordered_genes.txt
 mv $sample_path/ordered_genes.txt $sample_path/ordered_genes.txt.orig
 perl $scripts_location/find_chr1_2.pl $template_pwd/TSOV2_Genes_With_Chr_listed $sample_path/ordered_genes.txt.orig
-mv $sample_path/chr1_2_genes_file.txt $sample_path/ordered_genes.txt
+cp $sample_path/chr1_2_genes_file.txt $sample_path/ordered_genes.txt
 
 # Delete the temp file
 rm -rf "$sample_path/ordered_genes_temp.txt"
