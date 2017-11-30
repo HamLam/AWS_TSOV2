@@ -82,44 +82,44 @@ echo "Assign subprocess(es) based on Submitted genes"
  if [[ -s ${working_dir_g7}/chr21_22_X_Y_genes_file.txt ]]; then
     echo "sh ${working_dir_g7}/run_cnv_wrapper_${g7}g7.sh" >> ${working_dir}/RunGroupCommands
    else
-    echo "No gene for chr21,22,X,Y subprocess, chr21_22_X_Y_genes_file.txt is zero in size"
+    echo "No gene for chr21,22,X,Y subprocess because chr21_22_X_Y_genes_file.txt is zero in size"
  fi
  
  if [[ -s ${working_dir_g6}/chr17_18_19_20_genes_file.txt ]]; then
     echo "sh ${working_dir_g6}/run_cnv_wrapper_${g6}g6.sh" >> ${working_dir}/RunGroupCommands
      else
-     echo "No gene for chr17-20 subprocess, chr17_18_19_20_genes_file.txt zero in size"
+     echo "No gene for chr17-20 subprocess because chr17_18_19_20_genes_file.txt zero in size"
  fi
      
   if [[ -s ${working_dir_g5}/chr13_14_15_16_genes_file.txt ]]; then
     echo "sh ${working_dir_g5}/run_cnv_wrapper_${g5}g5.sh" >> ${working_dir}/RunGroupCommands
   else
-    echo "No gene for chr13-16 subprocess, chr13_14_15_16_genes_file.txt zero in size"
+    echo "No gene for chr13-16 subprocess because chr13_14_15_16_genes_file.txt zero in size"
   fi
   
   if [[ -s ${working_dir_g4}/chr9_10_11_12_genes_file.txt ]]; then
    echo "sh ${working_dir_g4}/run_cnv_wrapper_${g4}g4.sh" >> ${working_dir}/RunGroupCommands
   else 
-   echo "No gene for chr9-12 subprocess, chr9_10_11_12_genes_file.txt zero in size"
+   echo "No gene for chr9-12 subprocess because chr9_10_11_12_genes_file.txt zero in size"
   fi
   
   if [[ -s ${working_dir_g3}/chr6_7_8_genes_file.txt ]]; then
     echo "sh ${working_dir_g3}/run_cnv_wrapper_${g3}g3.sh" >> ${working_dir}/RunGroupCommands
    else
-    echo "No gene for chr6-8 subprocess, chr6_7_8_genes_file.txt zero in size"
+    echo "No gene for chr6-8 subprocess because chr6_7_8_genes_file.txt zero in size"
  fi
  
   if [[ -s ${working_dir_g2}/chr3_4_5_genes_file.txt ]]; then
     echo "sh ${working_dir_g2}/run_cnv_wrapper_${g2}g2.sh" >> ${working_dir}/RunGroupCommands
    else
-    echo" No gene for chr3-5 subprocess, chr3_4_5_genes_file.txt zero in size"
+    echo" No gene for chr3-5 subprocess because chr3_4_5_genes_file.txt zero in size"
    fi
    
    if [[ -s ${working_dir_g1}/chr1_2_genes_file.txt ]]; then
      echo "sh ${working_dir_g1}/run_cnv_wrapper_${g1}g1.sh" >> ${working_dir}/RunGroupCommands
     else
-     echo "No gene for chr1-2 subprocess, chr1_2_genes_file.txt zero in size"
-   if
+     echo "No gene for chr1-2 subprocess because chr1_2_genes_file.txt zero in size"
+   fi
 
  echo "Running individual subprocesses via parallel"
  parallel -j +0 --joblog ${working_dir}/group_jobs_log < ${working_dir}/RunGroupCommands
