@@ -168,8 +168,8 @@ tr , '\n' < "$sample_path/ordered_genes_temp.txt" > "$sample_path/ordered_genes.
 echo "Searching chr9-12 genes"
 mv $sample_path/ordered_genes.txt $sample_path/ordered_genes.txt.orig
 perl $scripts_location/find_chr9_10_11_12.pl $template_pwd/TSOV2_Genes_With_Chr_listed $sample_path/ordered_genes.txt.orig
-cp $sample_path/chr9_10_11_12_genes_file.txt $sample_path/ordered_genes.txt
-cp $sample_path/chr9_10_11_12_genes_file.txt $sample_path/chr9_10_11_12_genes_file.txt
+cp $current_path/chr9_10_11_12_genes_file.txt $sample_path/ordered_genes.txt
+cp $current_path/chr9_10_11_12_genes_file.txt $sample_path/chr9_10_11_12_genes_file.txt
 echo "chr9-12 genes searched"
 
 
