@@ -112,7 +112,7 @@ echo "Assign subprocess(es) based on Submitted genes"
   if [[ -s ${working_dir_g2}/chr3_4_5_genes_file.txt ]]; then
     echo "sh ${working_dir_g2}/run_cnv_wrapper_${g2}g2.sh" >> ${working_dir}/RunGroupCommands
    else
-    echo" No gene for chr3-5 subprocess because chr3_4_5_genes_file.txt zero in size"
+    echo "No gene for chr3-5 subprocess because chr3_4_5_genes_file.txt zero in size"
    fi
    
    if [[ -s ${working_dir_g1}/chr1_2_genes_file.txt ]]; then
