@@ -874,14 +874,14 @@ fi
 echo -n "Finished get_qc_data.sql " >> $working_dir/time_check
 timecheck=`(date +"%Y-%m-%d [ %H:%M:%S ]")`;
 echo ${timecheck} >> $working_dir/time_check
-
-if [ -s sample_name_qc_data_$_now.txt ]
-then
-    cp  sample_name_qc_data_$_now.txt  archive_path/QC
-    chmod 664 archive_path/QC/sample_name_qc_data_$_now.txt
-else
-    echo "sample_name_qc_data_$_now.txt is empty"
-fi
+# Skip QC Test
+#if [ -s sample_name_qc_data_$_now.txt ]
+#then
+#    cp  sample_name_qc_data_$_now.txt  archive_path/QC
+#    chmod 664 archive_path/QC/sample_name_qc_data_$_now.txt
+#else
+#    echo "sample_name_qc_data_$_now.txt is empty"
+#fi
 
 # don't shutdown mysql here, shutdown via the master 
 # SHUT DOWN MySQL 
