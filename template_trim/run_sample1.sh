@@ -495,6 +495,49 @@ echo -n "Finished create_sample_coverage.sql " >> $working_dir/time_check
 timecheck=`(date +"%Y-%m-%d [ %H:%M:%S ]")`;
 echo ${timecheck} >> $working_dir/time_check
 
+grep "Get_3_random_ref_genes" $working_dir/completed.txt > /dev/null 2>&1
+if [ "$?" = "0" ]; then
+    echo "Get_3_random_ref_genes already run"
+else
+ echo "Run Get_3_random_ref_genes"
+  mysqldump -u root --socket=$BASE/thesock --tab=$working_dir cnv1 cnv_sample_name_over_control_name_60bp_exon_ref1_med_gene_cov
+  chromo=$(cut -f2 cnv_sample_name_over_control_name_60bp_exon_ref1_med_gene_cov.txt | sort -u | awk -F ":" '{print $1}')
+  digit=$(cut -f2 cnv_sample_name_over_control_name_60bp_exon_ref1_med_gene_cov.txt | sort -u | awk -F ":" '{print $2}' | cut -c1)
+  colon=":"
+  chromosome=$chromo$colon$digit
+  r1=$(grep ${chromosome} ${working_dir}/reference_genes_file)
+  echo $r1
+   ref1_gene=$(echo $r1 | cut -d" " -f2)
+   echo -n "ref1: " >> ${working_dir}/Three_Ref_Genes
+   echo "$ref1_gene" >> ${working_dir}/Three_Ref_Genes
+
+  mysqldump -u root --socket=$BASE/thesock --tab=$working_dir cnv1 cnv_sample_name_over_control_name_60bp_exon_ref2_med_gene_cov
+   chromo=$(cut -f2 cnv_sample_name_over_control_name_60bp_exon_ref2_med_gene_cov.txt | sort -u | awk -F ":" '{print $1}')
+   digit=$(cut -f2 cnv_sample_name_over_control_name_60bp_exon_ref2_med_gene_cov.txt | sort -u | awk -F ":" '{print $2}' | cut -c1)
+   colon=":"
+   chromosome=$chromo$colon$digit
+   r2=$(grep ${chromosome} ${working_dir}/reference_genes_file)
+   echo $r2
+   ref2_gene=$(echo $r2 | cut -d" " -f2)
+   echo -n "ref2: " >> ${working_dir}/Three_Ref_Genes
+   echo "$ref2_gene" >> ${working_dir}/Three_Ref_Genes
+
+  mysqldump -u root --socket=$BASE/thesock --tab=$working_dir cnv1 cnv_sample_name_over_control_name_60bp_exon_ref3_med_gene_cov
+  chromo=$(cut -f2 cnv_sample_name_over_control_name_60bp_exon_ref3_med_gene_cov.txt | sort -u | awk -F ":" '{print $1}')
+  digit=$(cut -f2 cnv_sample_name_over_control_name_60bp_exon_ref3_med_gene_cov.txt | sort -u | awk -F ":" '{print $2}' | cut -c1)
+  colon=":"
+  chromosome=$chromo$colon$digit
+  r3=$(grep ${chromosome} ${working_dir}/reference_genes_file)
+  echo $r3
+  ref3_gene=$(echo $r3 | cut -d" " -f2)
+  echo -n "ref3: " >> ${working_dir}/Three_Ref_Genes
+  echo "$ref3_gene" >> ${working_dir}/Three_Ref_Genes
+
+ echo "Get_3_random_ref_genes" >> $working_dir/completed.txt
+
+fi
+
+
 grep "create_control_coverage.sql" $working_dir/completed.txt > /dev/null 2>&1
 if [ "$?" = "0" ]; then
     echo "create_control_coverage.sql already run"
@@ -775,6 +818,9 @@ else
 	echo "get_ordered_genes.sql" >> $working_dir/completed.txt
 	sed -e s,NULL,,g < sample_name_cnv_calls_on_ordered_genes_$_now.txt > sample_name_cnv_calls_on_ordered_genes_$_now.txt.bak
 	mv sample_name_cnv_calls_on_ordered_genes_$_now.txt.bak sample_name_cnv_calls_on_ordered_genes_$_now.txt
+	mv sample_name_cnv_calls_on_ordered_genes_$_now.txt sample_name_cnv_calls_on_ordered_genes_$_now.txt.tmp
+        cat sample_name_cnv_calls_on_ordered_genes_$_now.txt.tmp >> ${working_dir}/Three_Ref_Genes
+        mv ${working_dir}/Three_Ref_Genes sample_name_cnv_calls_on_ordered_genes_$_now.txt
     fi
 fi
 echo -n "Finished get_ordered_genes.sql " >> $working_dir/time_check
