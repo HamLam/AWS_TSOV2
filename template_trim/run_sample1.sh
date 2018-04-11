@@ -1,3 +1,6 @@
+
+## Using 3 pre-specified reference genes: SYNE1, BRCA2, TP53
+
 #!/bin/bash                             
 ulimit -u 
 
@@ -28,6 +31,16 @@ cd $working_dir
 #export LD_LIBRARY_PATH=/soft/python/2.7.5/lib:$LD_LIBRARY_PATH
 
 _now=$(date +"%Y-%m-%d_%H-%M")
+
+ls -1 $working_dir/reference_genes_file > /dev/null 2>&1
+if [ "$?" = "0" ]; then
+    echo "$working_dir/reference_genes_file exists"
+else
+echo "chr13:3 BRCA2" >> ${working_dir}/reference_genes_file
+echo "chr6:152654942-152655608 SYNE1" >> ${working_dir}/reference_genes_file
+echo "chr9:132584659-132585325 TOR1A" >> ${working_dir}/reference_genes_file
+echo "chr17:7573726-7574233 TP53" >> ${working_dir}/reference_genes_file
+fi
 
 
 ls -1 $working_dir/completed.txt > /dev/null 2>&1
@@ -272,23 +285,23 @@ echo -n "Finished load_sample " >> $working_dir/time_check
 timecheck=`(date +"%Y-%m-%d [ %H:%M:%S ]")`;
 echo ${timecheck} >> $working_dir/time_check
 
-grep "create_reference.sql" $working_dir/completed.txt > /dev/null 2>&1
+grep "create_reference_g1.sql" $working_dir/completed.txt > /dev/null 2>&1
 if [ "$?" = "0" ]; then
-    echo "create_reference.sql already run"
+    echo "create_reference_g1.sql already run"
 else
-    echo "Run create_reference.sql"
-    mysql --socket=$BASE/thesock -u root cnv1 < create_reference.sql
+    echo "Run create_reference_g1.sql"
+    mysql --socket=$BASE/thesock -u root cnv1 < create_reference_g1.sql
     if [[ $? -ne 0 ]] ; then
-	echo "Run create_reference.sql failed" >&2
+	echo "Run create_reference_g1.sql failed" >&2
 	## mysqladmin --socket=$BASE/thesock shutdown -u root
 	exit 1
     else
-       echo "g1 create_reference.sql done"
-	echo "create_reference.sql" >> $working_dir/completed.txt
+       echo "g1 create_reference_g1.sql done"
+	echo "create_reference_g1.sql" >> $working_dir/completed.txt
     fi
 fi
 
-echo -n "Finished create_reference.sql " >> $working_dir/time_check
+echo -n "Finished create_reference_g1.sql " >> $working_dir/time_check
 timecheck=`(date +"%Y-%m-%d [ %H:%M:%S ]")`;
 echo ${timecheck} >> $working_dir/time_check
 
