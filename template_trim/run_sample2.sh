@@ -35,7 +35,6 @@ if [ "$?" = "0" ]; then
 else
 echo "chr13:3 BRCA2" >> ${working_dir}/reference_genes_file
 echo "chr6:152654942-152655608 SYNE1" >> ${working_dir}/reference_genes_file
-echo "chr9:132584659-132585325 TOR1A" >> ${working_dir}/reference_genes_file
 echo "chr17:7573726-7574233 TP53" >> ${working_dir}/reference_genes_file
 fi
 
