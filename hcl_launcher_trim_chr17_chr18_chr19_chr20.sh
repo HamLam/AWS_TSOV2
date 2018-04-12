@@ -107,6 +107,9 @@ sed -e s,sample_name,"$sample_name",g < "$template_pwd/Pre_Load_Sample.sql" > "$
 # load_sample.sql
 sed -e s,sample_name,"$sample_name",g < "$template_pwd/load_sample.sql" > "$sample_path/load_sample.sql"
 
+# create_reference_g6.sql
+sed -e s,control_name,"$control_name",g -e s,sample_name,"$sample_name",g < "$template_pwd/create_reference_g6.sql" > "$sample_path/create_reference_g6.sql"
+
 # create_reference.sql
 sed -e s,control_name,"$control_name",g -e s,sample_name,"$sample_name",g < "$template_pwd/create_reference.sql" > "$sample_path/create_reference.sql"
 
