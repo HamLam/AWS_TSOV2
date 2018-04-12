@@ -108,6 +108,9 @@ sed -e s,sample_name,"$sample_name",g < "$template_pwd/load_sample.sql" > "$samp
 # create_reference.sql
 sed -e s,control_name,"$control_name",g -e s,sample_name,"$sample_name",g < "$template_pwd/create_reference.sql" > "$sample_path/create_reference.sql"
 
+# create_reference_g4.sql
+sed -e s,control_name,"$control_name",g -e s,sample_name,"$sample_name",g < "$template_pwd/create_reference_g4.sql" > "$sample_path/create_reference_g4.sql"
+
 # find_median.R
 sed -e s,sample_path,"$sample_path",g -e s,sample_name,"$sample_name",g -e s,control_name,"$control_name",g \
 -e s,scripts_location,"$scripts_location",g -e s,socket_path,"$socket_path",g -e s,dbname\=\"cnv\","$dbg4",g \
