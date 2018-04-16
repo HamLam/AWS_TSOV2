@@ -514,8 +514,8 @@ if [ "$?" = "0" ]; then
 else
  echo "Run Get_3_random_ref_genes"
   mysqldump -u root --socket=$BASE/thesock --tab=$working_dir cnv2 cnv_sample_name_over_control_name_60bp_exon_ref1_med_gene_cov
-  chromo=$(cut -f2 cnv_sample_name_over_control_name_60bp_exon_ref1_med_gene_cov.txt | sort -u | awk -F ":" '{print $1}')
-  digit=$(cut -f2 cnv_sample_name_over_control_name_60bp_exon_ref1_med_gene_cov.txt | sort -u | awk -F ":" '{print $2}' | cut -c1)
+  chromo=$(awk '{FS=" ";print $2}' cnv_sample_name_over_control_name_60bp_exon_ref1_med_gene_cov.txt | sort -u | awk -F ":" '{print $1}')
+  digit=$(awk '{FS=" ";print $2}' cnv_sample_name_over_control_name_60bp_exon_ref1_med_gene_cov.txt | sort -u | awk -F ":" '{print $2}' | cut -c1)
   colon=":"
   chromosome=$chromo$colon$digit
   r1=$(grep ${chromosome} ${working_dir}/reference_genes_file)
@@ -525,8 +525,8 @@ else
    echo "$ref1_gene" >> ${working_dir}/Three_Ref_Genes
 
   mysqldump -u root --socket=$BASE/thesock --tab=$working_dir cnv2 cnv_sample_name_over_control_name_60bp_exon_ref2_med_gene_cov
-   chromo=$(cut -f2 cnv_sample_name_over_control_name_60bp_exon_ref2_med_gene_cov.txt | sort -u | awk -F ":" '{print $1}')
-   digit=$(cut -f2 cnv_sample_name_over_control_name_60bp_exon_ref2_med_gene_cov.txt | sort -u | awk -F ":" '{print $2}' | cut -c1)
+   chromo=$(awk '{FS=" ";print $2}' cnv_sample_name_over_control_name_60bp_exon_ref2_med_gene_cov.txt | sort -u | awk -F ":" '{print $1}')
+   digit=$(awk '{FS=" ";print $2}' cnv_sample_name_over_control_name_60bp_exon_ref2_med_gene_cov.txt | sort -u | awk -F ":" '{print $2}' | cut -c1)
    colon=":"
    chromosome=$chromo$colon$digit
    r2=$(grep ${chromosome} ${working_dir}/reference_genes_file)
@@ -536,8 +536,8 @@ else
    echo "$ref2_gene" >> ${working_dir}/Three_Ref_Genes
 
   mysqldump -u root --socket=$BASE/thesock --tab=$working_dir cnv2 cnv_sample_name_over_control_name_60bp_exon_ref3_med_gene_cov
-  chromo=$(cut -f2 cnv_sample_name_over_control_name_60bp_exon_ref3_med_gene_cov.txt | sort -u | awk -F ":" '{print $1}')
-  digit=$(cut -f2 cnv_sample_name_over_control_name_60bp_exon_ref3_med_gene_cov.txt | sort -u | awk -F ":" '{print $2}' | cut -c1)
+  chromo=$(awk '{FS=" ";print $2}' cnv_sample_name_over_control_name_60bp_exon_ref3_med_gene_cov.txt | sort -u | awk -F ":" '{print $1}')
+  digit=$(awk '{FS=" ";print $2}' cnv_sample_name_over_control_name_60bp_exon_ref3_med_gene_cov.txt | sort -u | awk -F ":" '{print $2}' | cut -c1)
   colon=":"
   chromosome=$chromo$colon$digit
   r3=$(grep ${chromosome} ${working_dir}/reference_genes_file)
