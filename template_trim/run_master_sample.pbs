@@ -34,19 +34,6 @@ cd $working_dir
 
 _now=$(date +"%Y-%m-%d_%H-%M")
 
-## Create the reference gene file
-echo "chr13:3 BRCA2" >> ${working_dir}/reference_genes_file
-echo "chr2:189856194-189856648 COL3A1" >> ${working_dir}/reference_genes_file
-echo "chr15:48773651-48774177 FBN1" >> ${working_dir}/reference_genes_file
-echo "chr10:1 PAX2" >> ${working_dir}/reference_genes_file
-echo "chr10:4 RET" >> ${working_dir}/reference_genes_file
-echo "chr13:2 SACS" >> ${working_dir}/reference_genes_file
-echo "chr6:152654942-152655608 SYNE1" >> ${working_dir}/reference_genes_file
-echo "chr9:132584659-132585325 TOR1A" >> ${working_dir}/reference_genes_file
-echo "chr17:7573726-7574233 TP53" >> ${working_dir}/reference_genes_file
-echo "chr1:216262154-216262681 USH2A" >> ${working_dir}/reference_genes_file
-
-
 ls -1 $working_dir/completed.txt > /dev/null 2>&1
 if [ "$?" = "0" ]; then
     echo "$working_dir/completed.txt exists"
