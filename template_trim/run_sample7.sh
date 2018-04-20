@@ -809,9 +809,10 @@ else
 	echo "get_ordered_genes.sql" >> ${working_dir}/completed.txt
 	sed -e s,NULL,,g < sample_name_cnv_calls_on_ordered_genes_$_now.txt > sample_name_cnv_calls_on_ordered_genes_$_now.txt.bak
 	mv sample_name_cnv_calls_on_ordered_genes_$_now.txt.bak sample_name_cnv_calls_on_ordered_genes_$_now.txt
-	mv sample_name_cnv_calls_on_ordered_genes_$_now.txt sample_name_cnv_calls_on_ordered_genes_$_now.txt.tmp
-        cat sample_name_cnv_calls_on_ordered_genes_$_now.txt.tmp >> ${working_dir}/Three_Ref_Genes
-        mv ${working_dir}/Three_Ref_Genes sample_name_cnv_calls_on_ordered_genes_$_now.txt
+	#mv sample_name_cnv_calls_on_ordered_genes_$_now.txt sample_name_cnv_calls_on_ordered_genes_$_now.txt.tmp
+        #cat sample_name_cnv_calls_on_ordered_genes_$_now.txt.tmp >> ${working_dir}/Three_Ref_Genes
+        #mv ${working_dir}/Three_Ref_Genes sample_name_cnv_calls_on_ordered_genes_$_now.txt
+	sed -i '1s/^/Refs: BRCA2,TP53,SYNE1\n/' sample_name_cnv_calls_on_ordered_genes_$_now.txt
     fi
 fi
 echo -n "Finished get_ordered_genes.sql " >> $working_dir/time_check
