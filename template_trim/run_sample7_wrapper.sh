@@ -21,7 +21,7 @@ else
 fi
 
 ATTEMPTS=1
- while [ $ATTEMPTS -lt 5 ]; do
+ while [ $ATTEMPTS -lt 21 ]; do
     echo -e "\n\n------------- ATTEMPT $ATTEMPTS ---------------\n\n"
       sh ${working_dir_g7}/run_cnv_${g7}.sh 
    ec=$?
