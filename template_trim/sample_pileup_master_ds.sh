@@ -30,7 +30,7 @@ num=0
 
 readcount=$(zcat ${orig_S1_R1} | awk 'NR%4==1' | wc -l)
 g=$(echo "$readcount > $CUTOFF_VALUE" | bc -l)
-if[ ${g} -gt ${num} ];then
+if[ ${g} -gt ${num} ]; then
 ## down sample here before mapping 
 $script_path/seqtk sample -s100 ${orig_S1_R1} 50000000 > ${WORKING_PATH}/sub1.fastq
 $script_path/seqtk sample -s100 ${orig_S1_R2} 50000000 > ${WORKING_PATH}/sub2.fastq
