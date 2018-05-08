@@ -6,7 +6,7 @@ c_S1_R1=c_s1r1Fastq
 c_S1_R2=c_s1r2Fastq
 
 orig_c1_R1=c_s1r1Fastq
-orig_c1_R2=s1r2Fastq
+orig_c1_R2=c_s1r2Fastq
 
 # Check to see if fastq files are compressed. If they are
 # uncompress them into the working directory
