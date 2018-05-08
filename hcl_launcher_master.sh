@@ -70,13 +70,31 @@ sed -e s,sample_path,"$sample_path",g -e s,sample_name,"$sample_name",g -e s,con
 -e s,code_path,"$current_path",g -e s,seq_db,"$seq_db",g < "$template_pwd/run_master_sample.pbs" > "$sample_path/run_master_$sample_name.pbs"
 
 # control_pileup_master.sh 
+#sed -e s,control_name,"$control_name",g -e s,c_s1r1Fastq,"$c_s1r1Fastq",g -e s,c_s1r2Fastq,"$c_s1r2Fastq ",g \
+#-e s,c_s2r1Fastq,"$c_s2r1Fastq",g -e s,c_s2r2Fastq,"$c_s2r2Fastq",g -e s,bwa_db_value,"$bwa_db_value",g \
+#-e s,bowtie2_db_value,"$bowtie2_db_value",g -e s,bwa_db_value,"$bwa_db_value",g -e s,seq_db,"$seq_db",g \
+#-e s,working_dir,"$sample_path",g \
+#-e s,scripts_location,"$scripts_location",g \
+#-e s,exo_chrfiles,"$chrfiles_path",g \
+#< "$template_pwd/control_pileup_master.sh" > "$sample_path/control_pileup.sh"
+
+# control_pileup_master_ds.sh 
 sed -e s,control_name,"$control_name",g -e s,c_s1r1Fastq,"$c_s1r1Fastq",g -e s,c_s1r2Fastq,"$c_s1r2Fastq ",g \
 -e s,c_s2r1Fastq,"$c_s2r1Fastq",g -e s,c_s2r2Fastq,"$c_s2r2Fastq",g -e s,bwa_db_value,"$bwa_db_value",g \
 -e s,bowtie2_db_value,"$bowtie2_db_value",g -e s,bwa_db_value,"$bwa_db_value",g -e s,seq_db,"$seq_db",g \
 -e s,working_dir,"$sample_path",g \
 -e s,scripts_location,"$scripts_location",g \
 -e s,exo_chrfiles,"$chrfiles_path",g \
-< "$template_pwd/control_pileup_master.sh" > "$sample_path/control_pileup.sh"
+< "$template_pwd/control_pileup_master_ds.sh" > "$sample_path/control_pileup.sh"
+
+# sample_pileup_master.sh 
+#sed -e s,sample_name,"$sample_name",g -e s,s_s1r1Fastq,"$s_s1r1Fastq",g -e s,s_s1r2Fastq,"$s_s1r2Fastq ",g \
+#-e s,s_s2r1Fastq,"$s_s2r1Fastq",g -e s,s_s2r2Fastq,"$s_s2r2Fastq",g -e s,bwa_db_value,"$bwa_db_value",g \
+#-e s,bowtie2_db_value,"$bowtie2_db_value",g -e s,bwa_db_value,"$bwa_db_value",g -e s,seq_db,"$seq_db",g \
+#-e s,working_dir,"$sample_path",g \
+#-e s,scripts_location,"$scripts_location",g \
+#-e s,exo_chrfiles,"$chrfiles_path",g \
+#< "$template_pwd/sample_pileup_master.sh" > "$sample_path/sample_pileup.sh"
 
 # sample_pileup_master.sh 
 sed -e s,sample_name,"$sample_name",g -e s,s_s1r1Fastq,"$s_s1r1Fastq",g -e s,s_s1r2Fastq,"$s_s1r2Fastq ",g \
@@ -85,6 +103,4 @@ sed -e s,sample_name,"$sample_name",g -e s,s_s1r1Fastq,"$s_s1r1Fastq",g -e s,s_s
 -e s,working_dir,"$sample_path",g \
 -e s,scripts_location,"$scripts_location",g \
 -e s,exo_chrfiles,"$chrfiles_path",g \
-< "$template_pwd/sample_pileup_master.sh" > "$sample_path/sample_pileup.sh"
-
-
+< "$template_pwd/sample_pileup_master_ds.sh" > "$sample_path/sample_pileup.sh"
