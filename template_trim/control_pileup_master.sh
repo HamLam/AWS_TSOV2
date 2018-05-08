@@ -1,8 +1,6 @@
 #!/bin/bash
 
 # module load parallel
-orig_c1_R1=c_s1r1Fastq
-orig_c1_R2=c_s1r2Fastq
 
 c_S1_R1=c_s1r1Fastq
 c_S1_R2=c_s1r2Fastq
@@ -21,23 +19,6 @@ BWA_DB=bwa_db_value
 BOWTIE2_DB=bowtie2_db_value
 S_DB=seq_db
 ref=/panfs/roc/rissdb/genomes/Homo_sapiens/hg19_canonical/seq/hg19_canonical.fa
-
-BASECOUNT=50000000
-CUTOFF_VALUE=60000000
-num=0
-
-readcount=$(zcat ${orig_S1_R1} | awk 'NR%4==1' | wc -l)
-g=$(echo "$readcount > $CUTOFF_VALUE" | bc -l)
-if[ ${g} -gt ${num} ];then
-## down sample here before mapping 
-$script_path/seqtk sample -s100 ${orig_c1_R1} 50000000 > ${WORKING_PATH}/sub1.fastq
-$script_path/seqtk sample -s100 ${orig_c1_R2} 50000000 > ${WORKING_PATH}/sub2.fastq
-c_S1_R1=${WORKING_PATH}/sub1.fastq
-c_S1_R2=${WORKING_PATH}/sub2.fastq
-else
- echo "No down sampling needed"
-fi
-
 
 bwacommand="bwa mem -M -t 24 $BWA_DB $c_S1_R1 $c_S1_R2 | samtools view -q 10 -bS - > c_bwa.bam"
 btcommand="bowtie2 -p 24 -k 5 -x $BOWTIE2_DB -1 $c_S1_R1 -2 $c_S1_R2 | samtools view -q 10 -bS - > c_bowtie2.bam"
