@@ -34,8 +34,8 @@ if[ ${g} -gt ${num} ];then
 ## down sample here before mapping 
 $script_path/seqtk sample -s100 ${orig_S1_R1} 50000000 > ${WORKING_PATH}/sub1.fastq
 $script_path/seqtk sample -s100 ${orig_S1_R2} 50000000 > ${WORKING_PATH}/sub2.fastq
-s_S1_R1=${WORKING_DIR}/sub1.fastq
-s_S1_R2=${WORKING_DIR}/sub2.fastq
+s_S1_R1=${WORKING_PATH}/sub1.fastq
+s_S1_R2=${WORKING_PATH}/sub2.fastq
 else
  echo "No down sampling needed"
 fi
