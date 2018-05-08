@@ -27,7 +27,7 @@ BASECOUNT=50000000
 CUTOFF_VALUE=60000000
 num=0
 
-readcount=$(zcat ${orig_S1_R1} | awk 'NR%4==1' | wc -l)
+readcount=$(zcat ${orig_c1_R1} | awk 'NR%4==1' | wc -l)
 g=$(echo "$readcount > $CUTOFF_VALUE" | bc -l)
 if [ ${g} -gt ${num} ]; then
 ## down sample here before mapping 
