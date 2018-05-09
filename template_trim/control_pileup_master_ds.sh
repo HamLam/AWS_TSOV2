@@ -28,6 +28,7 @@ CUTOFF_VALUE=60000000
 num=0
 
 readcount=$(zcat ${orig_c1_R1} | awk 'NR%4==1' | wc -l)
+echo "control sample read count: $readcount"
 g=$(echo "$readcount > $CUTOFF_VALUE" | bc -l)
 if [ ${g} -gt ${num} ]; then
 ## down sample here before mapping 
