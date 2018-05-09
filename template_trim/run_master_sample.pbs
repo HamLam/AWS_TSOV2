@@ -60,7 +60,7 @@ grep "ND" ${working_dir}/downoption_file > /dev/null 2>&1
    echo "Down sampling fastq"
    echo "sh ${working_dir}/control_pileup_ds.sh" > ${working_dir}/MappingCommands
    echo "sh ${working_dir}/sample_pileup_ds.sh" >> ${working_dir}/MappingCommands
-   parallel -j 2 --joblog ${working_dir}/mapping_jobs_log < MappingCommands 
+   parallel -j 1 --joblog ${working_dir}/mapping_jobs_log < MappingCommands 
    wait;
   fi
   
