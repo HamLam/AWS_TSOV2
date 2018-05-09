@@ -50,13 +50,14 @@ mkdir ${working_dir}/javatmp
 export PARALLEL="--env _JAVA_OPTIONS=-Djava.io.tmpdir=/mnt/tmp/tso_launcher_v3.0.0/javatmp"
 
 grep "ND" ${working_dir}/downoption_file > /dev/null 2>&1
-
  if [ "$?" = "0" ]; then  # not down-sampling   
+   echo "No down sampling fastq"
    echo "sh ${working_dir}/control_pileup.sh" > ${working_dir}/MappingCommands
    echo "sh ${working_dir}/sample_pileup.sh" >> ${working_dir}/MappingCommands
    parallel -j 2 --joblog ${working_dir}/mapping_jobs_log < MappingCommands 
    wait;
   else    # down sampling the fastq
+   echo "Down sampling fastq"
    echo "sh ${working_dir}/control_pileup_ds.sh" > ${working_dir}/MappingCommands
    echo "sh ${working_dir}/sample_pileup_ds.sh" >> ${working_dir}/MappingCommands
    parallel -j 2 --joblog ${working_dir}/mapping_jobs_log < MappingCommands 
