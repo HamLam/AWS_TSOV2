@@ -38,7 +38,7 @@ $script_path/seqtk sample -s100 ${orig_c1_R2} 50000000 > ${WORKING_PATH}/control
 c_S1_R1=${WORKING_PATH}/control_R1_sub1.fastq
 c_S1_R2=${WORKING_PATH}/control_R2_sub2.fastq
 else
- echo "No down sampling needed"
+ echo "No down sampling needed for control fastqs"
 fi
 
 bwacommand="bwa mem -M -t 24 $BWA_DB $c_S1_R1 $c_S1_R2 | samtools view -q 10 -bS - > c_bwa.bam"
