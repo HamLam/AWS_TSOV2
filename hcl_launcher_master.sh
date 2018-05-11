@@ -96,7 +96,7 @@ sed -e s,sample_name,"$sample_name",g -e s,s_s1r1Fastq,"$s_s1r1Fastq",g -e s,s_s
 -e s,exo_chrfiles,"$chrfiles_path",g \
 < "$template_pwd/sample_pileup_master.sh" > "$sample_path/sample_pileup.sh"
 
-# sample_pileup_master.sh 
+# sample_pileup_master_ds.sh 
 sed -e s,sample_name,"$sample_name",g -e s,s_s1r1Fastq,"$s_s1r1Fastq",g -e s,s_s1r2Fastq,"$s_s1r2Fastq ",g \
 -e s,s_s2r1Fastq,"$s_s2r1Fastq",g -e s,s_s2r2Fastq,"$s_s2r2Fastq",g -e s,bwa_db_value,"$bwa_db_value",g \
 -e s,bowtie2_db_value,"$bowtie2_db_value",g -e s,bwa_db_value,"$bwa_db_value",g -e s,seq_db,"$seq_db",g \
