@@ -35,6 +35,16 @@ diptest [http://cran.r-project.org/src/contrib/diptest_0.75-6.tar.gz]
 
 randomForest [http://cran.r-project.org/src/contrib/randomForest_4.6-10.tar.gz]
 
+Perl packages:
+
+DBD [http://search.cpan.org/CPAN/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.031.tar.gz]
+
+Exporter-Tiny [http://search.cpan.org/CPAN/authors/id/T/TO/TOBYINK/Exporter-Tiny-0.042.tar.gz]
+
+DBI [http://search.cpan.org/CPAN/authors/id/T/TI/TIMB/DBI-1.633.tar.gz]
+
+List::MoreUtils [http://search.cpan.org/CPAN/authors/id/R/RE/REHSACK/List-MoreUtils-0.413.tar.gz]
+
 MySQL:
 
 MariaDB: https://mariadb.org/
