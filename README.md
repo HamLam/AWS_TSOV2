@@ -64,7 +64,7 @@ MySQL:
 MariaDB: https://mariadb.org/
 
 ### Chromosome grouping scheme 
-cnv group/chromosomes	
+cnv group: chromosomes	
 
 cnv1: 1,2	
 
