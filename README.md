@@ -63,4 +63,13 @@ MySQL:
 
 MariaDB: https://mariadb.org/
 
+### Chromosome grouping scheme and reference genes used for each group
 
+cnv group/chromosomes	3 reference genes
+cnv1: 1,2	SYNE1,BRCA2,TP53
+cnv2: 3,4,5	SYNE1,BRCA2,TP53
+cnv3: 6,7,8	BRCA2,TP53,TOR1A
+cnv4: 9,10,11,12	SYNE1,BRCA2,TP53
+cnv5: 13,14,15,16	SYNE1,TP53,TOR1A
+cnv6: 17,18.19,20	SYNE1,BRCA2,TOR1A
+cnv7: 21,22,X,Y SYNE1,BRCA2,TP53
