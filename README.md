@@ -11,7 +11,7 @@ hcl_launcher_* scripts: each script initializes a pipeline that processes a spec
 
 my.conf: setting for MySQL database used in the pipeline
 
-Dependencies:
+###Dependencies:
 
 gnu parallel
 
@@ -25,7 +25,7 @@ picard-tools
 
 samtools
 
-Here are lists of required packages for the pipeline:
+###Here are lists of required packages for the pipeline:
 
 R packages:
 
