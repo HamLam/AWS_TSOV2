@@ -20,3 +20,23 @@ MASS [http://cran.r-project.org/src/contrib/MASS_7.3-40.tar.gz]
 calibrate [http://cran.r-project.org/src/contrib/calibrate_1.7.2.tar.gz]
 
 getopt [http://cran.r-project.org/src/contrib/getopt_1.20.0.tar.gz]
+
+optparse [http://cran.r-project.org/src/contrib/optparse_1.3.0.tar.gz]
+
+plotrix [http://cran.r-project.org/src/contrib/plotrix_3.5-11.tar.gz]
+
+DBI [http://cran.r-project.org/src/contrib/DBI_0.3.1.tar.gz]
+
+RMySQL [http://cran.r-project.org/src/contrib/RMySQL_0.10.3.tar.gz]
+
+zoo [http://cran.r-project.org/src/contrib/zoo_1.7-12.tar.gz]
+
+diptest [http://cran.r-project.org/src/contrib/diptest_0.75-6.tar.gz]
+
+randomForest [http://cran.r-project.org/src/contrib/randomForest_4.6-10.tar.gz]
+
+MySQL:
+
+MariaDB: https://mariadb.org/
+
+
