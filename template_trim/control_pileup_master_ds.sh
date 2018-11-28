@@ -31,10 +31,10 @@ readcount=$(zcat ${orig_c1_R1} | awk 'NR%4==1' | wc -l)
 echo "control sample read count: $readcount"
 g=$(echo "$readcount > $CUTOFF_VALUE" | bc -l)
 if [ ${g} -gt ${num} ]; then
-## down sample here before mapping
+## down sample here before mapping with 2 pass mode
 chmod ug+rwx $script_path/seqtk
-$script_path/seqtk sample -s100 ${orig_c1_R1} 50000000 > ${WORKING_PATH}/control_R1_sub1.fastq
-$script_path/seqtk sample -s100 ${orig_c1_R2} 50000000 > ${WORKING_PATH}/control_R2_sub2.fastq
+$script_path/seqtk sample -s100 -2 ${orig_c1_R1} 50000000 > ${WORKING_PATH}/control_R1_sub1.fastq
+$script_path/seqtk sample -s100 -2 ${orig_c1_R2} 50000000 > ${WORKING_PATH}/control_R2_sub2.fastq
 c_S1_R1=${WORKING_PATH}/control_R1_sub1.fastq
 c_S1_R2=${WORKING_PATH}/control_R2_sub2.fastq
 else
